@@ -2,7 +2,86 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <h2>Welcome to ReFlask. We recycle old water bottles with a paint job to prevent waste and give back to those in need!</h2>
+    <div class="hero">
+        <div class="video-background">
+            <div class="video-foreground">
+                <iframe src="https://www.youtube.com/embed/91-CtBx6Gd8?autoplay=1&mute=1&modestbranding=1&playlist=91-CtBx6Gd8&loop=1" allow="autoplay; loop"></iframe>
+            </div>
+        </div>
+
+        <div class="text-wrapper">
+            <h1>ReFlask</h1>
+        </div>
+    </div>
+
+    <section class="cards">
+        <h2 class="sr-only">Explore our Designs</h2>
+        <a class="card" href="#">
+            <img src="/patagonia.jpg" alt="a Patagonia painted water bottle" width="500" height="500" loading="lazy">
+            <h2>Designs</h2>
+            <p>Explore hundreds of designs</p>
+        </a>
+        <a href="#" class="card">
+            <img src="/kona.jpg" alt="a dog posing with a water bottle" width="500" height="500" loading="lazy">
+            <h2>Adventure</h2>
+            <p>Make your bottle unique to YOU</p>
+        </a>
+        <a href="#" class="card">
+            <img src="/christmas.jpg" alt="a water bottle posed as a christmas gift" width="500" height="500"
+                 loading="lazy">
+            <h2>Gifts</h2>
+            <p>Browse top gift ideas</p>
+        </a>
+        <a href="#" class="card">
+            <img src="/snow.jpg" alt="a water bottle positioned stylistically in the snow" width="500" height="500"
+                 loading="lazy">
+            <h2>Custom</h2>
+            <p>Customize your own</p>
+        </a>
+    </section>
+    <main>
+        <article class="panel">
+            <div class="text-wrapper left">
+                <h2>Beautiful, Handcrafted Designs</h2>
+                <p>Each of our designs is handmade and personally selected. We ensure the highest quality possible and our greatest effort is to make sure that your bottle is specific to you.</p>
+                <a class="button" href="">Explore</a>
+            </div>
+            <div class="image-wrapper">
+                <img src="/sunset.jpg" alt="custom designed water bottle with a sunset on it" width="600" height="800" loading="lazy">
+            </div>
+        </article>
+        <article class="panel">
+            <div class="text-wrapper">
+                <h2>Watch the Process</h2>
+                <p>Check out videos from our artists as they turn old, dirty, and dented bottles into renewed masterpieces.</p>
+                <a class="button" href="">Watch</a>
+            </div>
+            <div class="image-wrapper left">
+                <img src="/beforeafter.jpg" alt="before and after picture of a spray painted water bottle" width="800" height="800" loading="lazy">
+            </div>
+        </article>
+    </main>
+    <div class="quotetext">
+        <p><strong><b>From your creators:</b></strong></p>
+        <div class="quoteenter">
+            <p><em>"We're here to help make the world a better place!"</em></p>
+        </div>
+    </div>
+    <aside>
+        <a class="contactbutton"  asp-area="" asp-controller="Home" asp-action="Contact">Request Free Quote</a>
+    </aside>
+    <script>
+        const header = document.querySelector("header");
+
+        document.querySelector(".menu-icon").addEventListener("click", () => {
+        header.classList.toggle("close");
+        });
+    </script>
+</body>
+
+</html>

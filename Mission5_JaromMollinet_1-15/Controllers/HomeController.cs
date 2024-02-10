@@ -18,7 +18,7 @@ namespace Mission5_JaromMollinet_1_15.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Contact()
         {
             return View();
         }

@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+}
+<h2>Service Charge Calculator</h2>
+
+<div>
+    <label for="hours">Hours Needed:</label>
+    <input type="number" id="hours" name="hours" />
+    <span id="error-message" style="color: red;"></span>
+</div>
+
+<div>
+    <label for="rate">Hourly Rate ($):</label>
+    <input type="text" id="rate" name="rate" value="50" readonly />
+</div>
+
+<div>
+    <button id="calculate">Calculate Total</button>
+</div>
+
+<div>
+    <label for="total">Total Cost ($):</label>
+    <input type="text" id="total" name="total" readonly />
+</div>
+
+<a href="/">Back to Home</a>
+
+@section Scripts {
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#calculate").click(function () {
+                var hours = $("#hours").val();
+                var rate = $("#rate").val();
+                var errorMessage = $("#error-message");
+
+                // Clear previous error message
+                errorMessage.text('');
+
+                // Validate input
+                if (isNaN(hours) || hours <= 0) {
+                    errorMessage.text("Please enter a positive number for hours.");
+                    return;
+                }
+
+                // Calculate and display the total
+                var total = hours * rate;
+                $("#total").val(total.toFixed(2));
+            });
+        });
+    </script>
+}

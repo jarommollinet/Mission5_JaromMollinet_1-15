@@ -20,3 +20,629 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/*****************************************************/
+/* This semester we will be using my variation of    */
+/* Josh Comeau's CSS Reset instead of normalize      */
+/* Read more at                                      */
+/* https://www.joshwcomeau.com/css/custom-css-reset/ */
+/*****************************************************/
+/* Always add your CSS below the reset CSS           */
+/*****************************************************/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    /* this an experimental line-height; if it breaks, add line-height: 1.5 to body */
+    line-height: calc(1em + 0.5rem);
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+*/ input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* until you get a feel for overflow, I'll keep these next two commented out */
+/* p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+} */
+
+/* p {
+  overflow-wrap: break-word;
+  hyphens: auto;
+} */
+
+/* temp CSS for HTML only assignments */
+/* picture img {
+  width: 100%;
+} */
+
+svg {
+    width: 200px;
+}
+
+/* temp fix to size about img */
+/* img[srcset] {
+  width: 50%;
+  height: auto;
+  margin: 2rem auto;
+} */
+
+/* temporary fix to size svg images */
+img[src$="svg"] {
+    width: 200px;
+}
+
+/************ add your CSS here *****************/
+
+:root {
+    --color-font: #333;
+    --color-primary: #274c77; /* dark blue */
+    --color-secondary: #09bc8a; /* light green */
+    --color-accent: #88292f; /* dark red */
+    --color-accent-light: #fffded; /* light tan */
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    color: var(--color-font);
+    /* display: flex; */
+    flex-direction: column;
+    align-items: stretch;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: "Montserrat", sans-serif;
+    color: var(--color-primary);
+    margin-bottom: 0.5em;
+    margin-top: 1.5em;
+}
+
+h1 {
+    font-size: 3.5rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+article,
+aside {
+    margin-bottom: 6rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-accent);
+}
+
+    a[href] {
+        text-decoration: none;
+    }
+
+        a[href]:hover {
+            border-spacing: none;
+        }
+
+ul {
+    list-style-type: none;
+}
+
+.button {
+    display: inline-block;
+    color: var(--color-accent);
+    background-color: white;
+    border: solid 1px var(--color-accent);
+    padding: 1rem;
+    border-radius: 0.3em;
+    font-weight: 800;
+    text-align: center;
+    margin: 10px;
+    font-size: 1rem;
+    transition: background-color 300ms ease, color 300ms ease, border 300ms, font-size 300ms;
+}
+
+    .button:hover {
+        background-color: var(--color-accent);
+        color: white;
+        transition: background-color 300ms ease, color 300ms ease, border 300ms, font-size 300ms;
+    }
+
+main {
+    margin: 0 auto;
+    padding: 0 1rem;
+    max-width: 70rem;
+    align-self: center;
+}
+
+footer {
+    padding: 2%;
+    background-color: var(--color-accent);
+    color: var(--color-accent-light);
+    text-align: center;
+    font-size: 1.5em;
+    font-style: italic;
+    font-weight: 1000;
+    margin-top: 5%;
+}
+
+.menu-icon {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 1.5rem;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    z-index: 2;
+}
+
+    .menu-icon line {
+        stroke: #fff;
+        stroke-width: 3px;
+        stroke-linecap: round;
+        transform-origin: center;
+        transition: transform 300ms ease;
+    }
+
+        .menu-icon line:first-child {
+            transform: translateY(16%);
+        }
+
+        .menu-icon line:last-child {
+            transform: translateY(-16%);
+        }
+
+nav {
+    display: none;
+    background-color: var(--color-primary);
+}
+
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 0 3rem;
+        font-size: 2rem;
+    }
+
+    nav a {
+        display: block;
+        padding: 2rem;
+        color: white;
+        text-decoration: none;
+    }
+
+/* JavaScript toggles a "close" class on the <nav> when the menu-icon is clicked */
+.close nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+}
+
+.close line:first-child {
+    transform: rotate(135deg);
+}
+
+.close line:last-child {
+    transform: rotate(-135deg);
+}
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    height: 80vh;
+}
+
+    .hero .text-wrapper {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 6rem;
+        color: white;
+        mix-blend-mode: difference;
+    }
+
+    .hero h1 {
+        font-size: 10rem;
+    }
+
+.video-background {
+    background: #000;
+    position: absolute;
+    inset: 0;
+    z-index: -99;
+    height: 80vh;
+}
+
+    .video-foreground,
+    .video-background iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+@media (min-aspect-ratio: 16/9) {
+    .video-foreground {
+        height: 300%;
+        top: -100%;
+    }
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .video-foreground {
+        width: 300%;
+        left: -100%;
+    }
+}
+
+/* .hero img {
+  position: relative;
+  width: 100%;
+  height: auto;
+  filter: brightness(60%);
+}
+
+.hero div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 10;
+}
+
+.hero h1 {
+  color: white;
+  font-size: clamp(4rem, 10vw, 7rem);
+  max-width: 80%;
+  text-align: center;
+}
+
+.hero p {
+  color: white;
+  font-size: 5vw;
+  max-width: 80%;
+  text-align: center;
+} */
+
+.sr-only {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+
+.cards {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 6rem;
+    margin-top: 6rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.card {
+    flex: 1 0 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+    .card:hover {
+        box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
+        transform: scale(1.01);
+    }
+
+        .card:hover p {
+            color: #333;
+        }
+
+        .card:hover a {
+            height: 120%;
+        }
+
+    .card img {
+        object-fit: cover;
+        object-position: center;
+        flex: 1;
+        width: 100%;
+    }
+
+    .card h2 {
+        padding: 1rem;
+        text-align: center;
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    .card p {
+        padding: 1rem;
+        color: white;
+        font-family: montserrat;
+        font-weight: 100;
+        transition: color 300ms;
+        text-align: center;
+        margin: 0;
+    }
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0 2rem 10rem;
+}
+
+    .panel h2 {
+        margin-bottom: 1rem;
+    }
+
+    .panel p {
+        font-size: 2vw;
+    }
+
+    .panel .image-wrapper {
+        order: -1;
+    }
+
+.quotetext {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 10vh;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10rem;
+    font-size: 3vw;
+}
+
+.quoteenter {
+    display: flex;
+    position: block;
+    align-items: center;
+    justify-content: center;
+}
+
+aside {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 10vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactbutton {
+    display: flex;
+    position: absolute;
+    color: var(--color-accent);
+    background-color: white;
+    border: solid 1px var(--color-accent);
+    padding: 1rem;
+    border-radius: 0.3em;
+    font-weight: 800;
+    max-width: 30%;
+    font-size: 1rem;
+    transition: background-color 300ms ease, color 300ms ease, border 300ms, font-size 300ms;
+}
+
+    .contactbutton:hover {
+        background-color: var(--color-accent);
+        color: white;
+        transition: background-color 300ms ease, color 300ms ease, border 300ms, font-size 300ms;
+    }
+
+@media (min-width: 401px) {
+    /* tablet CSS */
+}
+
+@media screen and (min-width: 600px) {
+    .cards {
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 1rem;
+        justify-content: center;
+    }
+
+    .card {
+        flex: 1 0 45%;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: stretch;
+    }
+
+        nav ul {
+            flex-direction: row;
+            width: 100%;
+            justify-content: center;
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        nav a {
+            transition: background-color 0.2s ease-in-out;
+        }
+
+            nav a:hover {
+                background-color: white;
+                color: var(--color-primary);
+            }
+}
+
+.batman {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-left: 6rem;
+    margin-right: 6rem;
+}
+
+.contact-box {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 400px;
+    margin: 2rem auto;
+}
+
+    .contact-box h2 {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .contact-box form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-box label {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .contact-box input,
+    .contact-box textarea {
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+    }
+
+        .contact-box input:focus,
+        .contact-box textarea:focus {
+            outline: none;
+            border-color: #555;
+        }
+
+    .contact-box button {
+        background-color: #555;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+    }
+
+        .contact-box button:hover {
+            background-color: #333;
+        }
+
+@media (min-width: 801px) {
+    .panel {
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+        .panel .text-wrapper {
+            flex: 1 1 60%;
+        }
+
+        .panel .image-wrapper {
+            order: 0;
+            flex: 1 1 40%;
+        }
+
+        .panel .left {
+            order: -1;
+        }
+
+        .panel h2 {
+            margin-top: 0;
+        }
+}
+
+@media screen and (min-width: 1024px) {
+    .cards {
+        flex-wrap: nowrap;
+        gap: 1rem;
+        padding: 1rem;
+        justify-content: center;
+    }
+
+    .card {
+        flex: 1 0 25%;
+        max-width: 300px;
+    }
+
+        .card h2 {
+            font-size: 2rem;
+        }
+
+        .card p {
+            font-size: 1.2rem;
+        }
+}
